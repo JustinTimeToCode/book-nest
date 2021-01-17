@@ -13,21 +13,21 @@ export class BooksService {
     return await book.save();
   }
 
-  async getBookById(_id: Types.ObjectId): Promise<BookDocument> {
+  async getById(_id: Types.ObjectId): Promise<BookDocument> {
     return await this.bookModel.findById(_id).exec();
   }
 
-  async getBooks(): Promise<BookDocument[]> {
+  async getAll(): Promise<BookDocument[]> {
     return await this.bookModel.find({}).exec();
   }
 
-  async updateBook(payload: UpdateBookDTO): Promise<BookDocument> {
+  async update(payload: UpdateBookDTO): Promise<BookDocument> {
     return await this.bookModel
       .findByIdAndUpdate(payload._id, payload, { new: true })
       .exec();
   }
 
-  async deleteBook(_id: Types.ObjectId) {
+  async delete(_id: Types.ObjectId) {
     return await this.bookModel.findByIdAndDelete(_id).exec();
   }
 }

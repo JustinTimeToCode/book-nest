@@ -2,6 +2,15 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Book {
+  _id: String!
+  author: ID!
+  copies: Int!
+  genre: String!
+  title: String!
+}
+
 type Query {
+  book(_id: String!): Book!
   hello: String!
 }
