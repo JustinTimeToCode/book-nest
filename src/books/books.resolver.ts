@@ -1,4 +1,10 @@
-import { Resolver } from '@nestjs/graphql';
+import { Resolver, Query } from '@nestjs/graphql';
 
 @Resolver()
-export class BooksResolver {}
+export class BooksResolver {
+    @Query(()=> String)
+    hello(){
+        return "Hello World"
+    }
+
+}
